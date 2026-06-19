@@ -1,0 +1,24 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.VC.db
+*.VC.VC.opendb
+
+# Build outputs
+x64/
+x86/
+Debug/
+Release/
+bin/
+obj/
+*.exe
+*.ilk
+*.pdb
+*.obj
+*.log
+*.recipe
+
+# OS files
+Thumbs.db
+Desktop.ini
