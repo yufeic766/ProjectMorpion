@@ -19,4 +19,28 @@ void GameController::handleTurn() {
     // 2. 调用 play 获取坐标
     // 3. 调用 game_.makeMove(row, col)
     // 4. 如果落子失败，提示重新输入
+
+    bool moveSuccess = false;
+
+    while (!moveSuccess) {
+        Player* player = nullptr;
+
+        if (game_.getCurrentPlayer() == CellState::X) {
+            player = &game_.getHumanX();
+        }
+        else if (game_.getMode() == GameMode::HumanVsAI) {
+            player = &game_.getAIPlayer();
+        }
+        else {
+            player = &game_.getHumanO();
+        }
+
+        auto [row, col] = player->play(game_.getBoard());
+
+        moveSuccess = game_.makeMove(row, col);
+
+        if (!moveSuccess) {
+            std::cout << "落子失败，请重新输入。\n";
+        }
+    }
 }
